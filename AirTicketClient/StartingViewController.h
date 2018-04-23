@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataManager.h"
 
-@interface ViewController : UIViewController
+@interface StartingViewController : UIViewController
 
 
 @end
