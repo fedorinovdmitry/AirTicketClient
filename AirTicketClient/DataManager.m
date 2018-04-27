@@ -43,22 +43,7 @@
 - (NSMutableArray *)createObjectsFromArray:(NSArray *)array withType:(DataSourceType)type {
     NSMutableArray *results = [NSMutableArray  new];
     for (NSDictionary *jsonObject in  array){
-//        switch (type) {
-//            case DataSourceTypeCity:
-//                City *city = [[City alloc] initWithDictionary: jsonObject];
-//                [results addObject:city];
-//                break;
-//                case DataSourceTypeAirport:
-//                Airport *airport = [[Airport alloc] initWithDictionary: jsonObject];
-//                [results addObject:airport];
-//                break;
-//                case DataSourceTypeCountry:
-//                Country *country = [[Country alloc] initWithDictionary: jsonObject];
-//                [results addObject:country];
-//                break;
-//            default:
-//                break;
-//        }
+
         if (type == DataSourceTypeCountry){
             Country *country = [[Country alloc] initWithDictionary: jsonObject];
             [results addObject:country];

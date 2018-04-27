@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "StartingViewController.h"
+#import "PlaceViewController.h"
 
 @interface AppDelegate ()
 
@@ -23,8 +24,9 @@
     
     StartingViewController *startingViewController = [[StartingViewController alloc] init];
     startingViewController.view.backgroundColor = [UIColor whiteColor];
-    
+//    PlaceViewController *placeViewController = [[PlaceViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:startingViewController];
+    
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     

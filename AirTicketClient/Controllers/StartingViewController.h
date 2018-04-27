@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DataManager.h"
+#import "PlaceViewController.h"
 
 @interface StartingViewController : UIViewController
 
