@@ -51,12 +51,7 @@
     _segmentedControl.selectedSegmentIndex = 0;
     [self changeSource];
     
-    if (_placeType == PlaceTypeDeparture){
-        self.title =  @"From";
-    }
-    else{
-        self.title =  @"To";
-    }
+    self.title = (_placeType == PlaceTypeDeparture) ? @"From" :@"To";
     
 }
 
@@ -90,17 +85,12 @@
     }
     [cell.detailTextLabel setFont:[UIFont fontWithName:@"Superclarendon-Light" size:11.0]];
     [cell.textLabel setFont:[UIFont fontWithName:@"SnellRoundhand-Bold" size:20.0]];
-    if (_segmentedControl.selectedSegmentIndex ==  0) {
-        City *city = [_currentArray objectAtIndex:indexPath.row];
-        cell.textLabel.text = city.name;
-        
-        cell.detailTextLabel.text = city.code;
-        
-    }else if (_segmentedControl.selectedSegmentIndex ==  1) {
-        Airport *airport = [_currentArray objectAtIndex:indexPath.row];
-        cell.textLabel.text = airport.name;
-        cell.detailTextLabel.text = airport.code;
-    }
+    
+    id <PlaceProtocol> place = _currentArray[indexPath.row];
+    cell.textLabel.text = place.name;
+    cell.detailTextLabel.text = place.code;
+    
+    
     return cell;
     
 }
@@ -110,7 +100,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DataSourceType dataType = ((int)_segmentedControl.selectedSegmentIndex) +  1;
     
-    [self.delegate selectPlace:[_currentArray objectAtIndex:indexPath.row] withType:_placeType                                                                                                                                                             andDataType:dataType];
+    [self.delegate selectPlace:_currentArray[indexPath.row] withType:_placeType                                                                                                                                                             andDataType:dataType];
     [self.navigationController popViewControllerAnimated: YES];
 }
 

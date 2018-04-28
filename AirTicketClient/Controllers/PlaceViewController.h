@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DataManager.h"
+#import "PlaceProtocol.h"
 
 typedef  enum PlaceType{
     PlaceTypeArrival,
@@ -15,7 +16,9 @@ typedef  enum PlaceType{
 } PlaceType;
 
 @protocol  PlaceViewControllerDelegate <NSObject>
-- (void) selectPlace:(id) place withType:(PlaceType)placeType andDataType:(DataSourceType)dataType;
+- (void) selectPlace:(id <PlaceProtocol>) place
+            withType:(PlaceType)placeType
+         andDataType:(DataSourceType)dataType;
 @end
 
 @interface PlaceViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>

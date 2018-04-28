@@ -8,22 +8,24 @@
 
 #import "City.h"
 
-@implementation City
+@implementation City 
+
+@synthesize timezone, countryCode, name, code, coordinate, translations;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary{
     self = [super init];
     if(self){
-        _timezone = [dictionary valueForKey:@"time_zone"];
-        _translations =[dictionary valueForKey:@"name_translations"];
-        _name = [dictionary valueForKey:@"name"];
-        _countryCode = [dictionary valueForKey:@"country_code"];
-        _code = [dictionary valueForKey:@"code"];
+        timezone = [dictionary valueForKey:@"time_zone"];
+        translations =[dictionary valueForKey:@"name_translations"];
+        name = [dictionary valueForKey:@"name"];
+        countryCode = [dictionary valueForKey:@"country_code"];
+        code = [dictionary valueForKey:@"code"];
         NSDictionary *coords = [dictionary valueForKey:@"coordinates"];
         if(coords && ![coords isEqual:[NSNull null]]){
             NSNumber *lon = [coords valueForKey:@"lon"];
             NSNumber *lat = [coords valueForKey:@"lat"];
             if(![lon isEqual:[NSNull null]] && ![lat isEqual:[NSNull null]]){
-                _coordinate = CLLocationCoordinate2DMake([lat doubleValue], [lon doubleValue]);
+                coordinate = CLLocationCoordinate2DMake([lat doubleValue], [lon doubleValue]);
             }
         }
         

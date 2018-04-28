@@ -90,19 +90,19 @@ typedef struct SearchRequest {
     [self setPlace:place withDataType:dataType andPlaceType:placeType forButton:(placeType == PlaceTypeDeparture) ? _departureButton : _arrivalButton];
 }
 
--(void)setPlace:(id)place withDataType:(DataSourceType)dataType andPlaceType:(PlaceType)placeType forButton:(UIButton *)button{
+-(void)setPlace:(id <PlaceProtocol>)place withDataType:(DataSourceType)dataType andPlaceType:(PlaceType)placeType forButton:(UIButton *)button{
     NSString *title;
     NSString *iata;
     
+    title = place.name;
+   
     if(dataType == DataSourceTypeCity){
-        City *city = (City *)place;
-        title = city.name;
-        iata = city.code;
+        iata = place.code;
     }else if(dataType == DataSourceTypeAirport){
         Airport *airport = (Airport*)place;
-        title = airport.name;
         iata = airport.cityCode;
     }
+    
     if (placeType == PlaceTypeDeparture){
         _searchRequest.origin = iata;
     }else {
