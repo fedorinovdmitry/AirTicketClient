@@ -21,9 +21,11 @@
 		4947926E208DDCC500337523 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 4947926D208DDCC500337523 /* City.m */; };
 		49479271208DDCD800337523 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = 49479270208DDCD800337523 /* Airport.m */; };
 		49479274208DE6C300337523 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49479273208DE6C300337523 /* DataManager.m */; };
+		D2623D2303D716017CF81D8A /* libPods-AirTicketClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB2587248470855E799C55DC /* libPods-AirTicketClient.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2752CA98BE4707945410E9B4 /* Pods-AirTicketClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirTicketClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-AirTicketClient/Pods-AirTicketClient.release.xcconfig"; sourceTree = "<group>"; };
 		2D42D74E209455B80098DF3A /* countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
 		2D42D74F209455B80098DF3A /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
 		2D42D750209455B80098DF3A /* airports.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = airports.json; sourceTree = "<group>"; };
@@ -34,6 +36,7 @@
 		2DCD70F52094A7A0008F3BFA /* Ticket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ticket.m; sourceTree = "<group>"; };
 		2DD62D3C20934E9B00E17238 /* PlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
 		2DD62D3D20934E9B00E17238 /* PlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
+		305D932D514D8833907C497C /* Pods-AirTicketClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirTicketClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AirTicketClient/Pods-AirTicketClient.debug.xcconfig"; sourceTree = "<group>"; };
 		49479249208DD78000337523 /* AirTicketClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirTicketClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4947924C208DD78000337523 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4947924D208DD78000337523 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -50,6 +53,7 @@
 		49479270208DDCD800337523 /* Airport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Airport.m; sourceTree = "<group>"; };
 		49479272208DE6C300337523 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		49479273208DE6C300337523 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		BB2587248470855E799C55DC /* libPods-AirTicketClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AirTicketClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +61,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2623D2303D716017CF81D8A /* libPods-AirTicketClient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11A8A7D8E84BF33DF185A796 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				305D932D514D8833907C497C /* Pods-AirTicketClient.debug.xcconfig */,
+				2752CA98BE4707945410E9B4 /* Pods-AirTicketClient.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2D42D74D209455460098DF3A /* JsonLocalFile */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,11 +107,21 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		326629120AC77FBFCA3F1E1F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BB2587248470855E799C55DC /* libPods-AirTicketClient.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		49479240208DD78000337523 = {
 			isa = PBXGroup;
 			children = (
 				4947924B208DD78000337523 /* AirTicketClient */,
 				4947924A208DD78000337523 /* Products */,
+				11A8A7D8E84BF33DF185A796 /* Pods */,
+				326629120AC77FBFCA3F1E1F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,9 +174,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4947925F208DD78000337523 /* Build configuration list for PBXNativeTarget "AirTicketClient" */;
 			buildPhases = (
+				7B58D3C7D31BAE74A9B40A32 /* [CP] Check Pods Manifest.lock */,
 				49479245208DD78000337523 /* Sources */,
 				49479246208DD78000337523 /* Frameworks */,
 				49479247208DD78000337523 /* Resources */,
+				DE0C550CE6E62FBFD1864B28 /* [CP] Embed Pods Frameworks */,
+				6F6A2AB758C50E7DBFF1866E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -209,6 +236,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6F6A2AB758C50E7DBFF1866E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AirTicketClient/Pods-AirTicketClient-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B58D3C7D31BAE74A9B40A32 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AirTicketClient-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE0C550CE6E62FBFD1864B28 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AirTicketClient/Pods-AirTicketClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		49479245208DD78000337523 /* Sources */ = {
@@ -348,6 +426,7 @@
 		};
 		49479260208DD78000337523 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 305D932D514D8833907C497C /* Pods-AirTicketClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -362,6 +441,7 @@
 		};
 		49479261208DD78000337523 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2752CA98BE4707945410E9B4 /* Pods-AirTicketClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

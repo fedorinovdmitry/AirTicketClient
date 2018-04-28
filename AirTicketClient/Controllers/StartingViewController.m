@@ -10,12 +10,6 @@
 #define BACKGROUNDCOLORBUTTON [UIColor colorWithRed:16.0f/255.0f green:75.0f/255.0f blue:201.0f/255.0f alpha:1.0f]
 #define BUTTON_FONT_STYLE_SIZE [UIFont fontWithName:@"SnellRoundhand-Bold" size:25.0]
 
-typedef struct SearchRequest {
-    __unsafe_unretained NSString *origin;
-    __unsafe_unretained NSString *destionation;
-    __unsafe_unretained NSDate *departDate;
-    __unsafe_unretained NSDate *returnDate;
-} SearchRequest;
 
 @interface StartingViewController () <PlaceViewControllerDelegate>
 
