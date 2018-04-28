@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DataManager.h"
+#import "Ticket.h"
 
 typedef struct SearchRequest{
     __unsafe_unretained NSString *origin;

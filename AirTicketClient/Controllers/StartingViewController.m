@@ -93,10 +93,27 @@
     _searchButton.backgroundColor = [UIColor whiteColor];
     _searchButton.layer.cornerRadius = 25.0;
     _searchButton.titleLabel.font = [UIFont systemFontOfSize: 20.0 weight: UIFontWeightBold];
+    [_searchButton  addTarget: self action: @selector (searchButtonDidTap:) forControlEvents: UIControlEventTouchUpInside];
     [self.view addSubview: _searchButton];
 
 
 }
+- (void)searchButtonDidTap:(UIButton  *)sender {
+    [[ APIManager  sharedInstance ]  ticketsWithRequest:   _searchRequest  withCompletion :^( NSArray *tickets) {
+        if (tickets. count  > 0) {
+            TicketTableViewController *ticketsViewController = [[TicketTableViewController alloc]  initWithTickets:tickets];
+            [self.navigationController showViewController:ticketsViewController sender : self];
+        }  else {
+            UIAlertController *alertController = [UIAlertController  alertControllerWithTitle: @"Sorry!" message : @"We dont have ticket conected with these cities"  preferredStyle:  UIAlertControllerStyleAlert ]; [alertController  addAction :[ UIAlertAction  actionWithTitle : @"Close" style:( UIAlertActionStyleDefault ) handler: nil ]];
+            [self presentViewController :alertController  animated : YES completion : nil];
+        }
+    }];
+    
+}
+
+
+
+
 -(void)placeButtonDidTap:(UIButton *)sender{
     PlaceViewController *placeViewController;
     if([sender isEqual:_departureButton]){

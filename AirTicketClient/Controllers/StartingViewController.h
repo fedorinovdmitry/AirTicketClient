@@ -10,6 +10,7 @@
 #import "DataManager.h"
 #import "PlaceViewController.h"
 #import "APIManager.h"
+#import "TicketTableViewController.h"
 @interface StartingViewController : UIViewController
 
 
