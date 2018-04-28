@@ -7,6 +7,8 @@
 //
 
 #import "StartingViewController.h"
+#define BACKGROUNDCOLORBUTTON [UIColor colorWithRed:16.0f/255.0f green:75.0f/255.0f blue:201.0f/255.0f alpha:1.0f]
+#define BUTTON_FONT_STYLE_SIZE [UIFont fontWithName:@"SnellRoundhand-Bold" size:25.0]
 
 typedef struct SearchRequest {
     __unsafe_unretained NSString *origin;
@@ -17,9 +19,11 @@ typedef struct SearchRequest {
 
 @interface StartingViewController () <PlaceViewControllerDelegate>
 
+@property (nonatomic, strong) UIView *placeContainerView;
 @property (nonatomic, strong) UIButton *departureButton;
 @property (nonatomic, strong) UIButton *arrivalButton;
 @property (nonatomic) SearchRequest searchRequest;
+@property (nonatomic, strong) UIButton *searchButton;
 
 @end
 
@@ -33,38 +37,71 @@ typedef struct SearchRequest {
     self.navigationController.navigationBar.prefersLargeTitles = YES;
     self.title = @"Find";
 //    [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(loadDataComplete) name:kDataManagerLoadDataDidComplete object: nil];
-    [self addDepartureButton];
-    [self addArrivalButton];
+    
+    
+    [self addPlaceContainerView];
+    [self addSearchButton];
+//    [self addArrivalButton];
     
     
     
 }
+
+-(void)addPlaceContainerView{
+    _placeContainerView = [[UIView alloc] initWithFrame:CGRectMake(20.0, 110.0, [UIScreen mainScreen].bounds.size.width - 40.0, 200)];
+    _placeContainerView.backgroundColor = [UIColor colorWithRed:170.0f/255.0f
+                                                          green:235.0f/255.0f
+                                                           blue:250.0f/255.0f
+                                                          alpha:0.8f];
+    _placeContainerView.layer.shadowColor = [[BACKGROUNDCOLORBUTTON
+                                              colorWithAlphaComponent:0.3] CGColor];
+    _placeContainerView.layer.shadowOffset = CGSizeZero;
+    _placeContainerView.layer.shadowRadius = 20.0;
+    _placeContainerView.layer.shadowOpacity = 1.0;
+    _placeContainerView.layer.cornerRadius = 6.0;
+    [self addDepartureButton];
+    [self addArrivalButton];
+    [self.view addSubview:_placeContainerView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(dataLoadedSuccessfully) name:kDataManagerLoadDataDidComplete object :nil];
+}
+
 -(void)addDepartureButton{
     _departureButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_departureButton setTitle:@"From" forState:UIControlStateNormal];
-    [_departureButton.titleLabel setFont:[UIFont fontWithName:@"Snell Roundhand" size:22.0]];
+    [_departureButton.titleLabel setFont:BUTTON_FONT_STYLE_SIZE];
+    _departureButton.tintColor = [UIColor whiteColor];
     
-    _departureButton.tintColor = [UIColor blackColor];
-    _departureButton.frame = CGRectMake(30.0, 140.0, [UIScreen mainScreen].bounds.size.width - 60.0, 60.0);
-    _departureButton.backgroundColor = [UIColor colorWithRed:116.0f/255.0f
-                                                       green:186.0f/255.0f
-                                                        blue:242.0f/255.0f
-                                                       alpha:1.0f];
+    _departureButton.frame = CGRectMake((_placeContainerView.frame.size.width - (_placeContainerView.frame.size.width - 125.0)) / 2, 20, _placeContainerView.frame.size.width - 125.0, 60.0);
+    _departureButton.backgroundColor = BACKGROUNDCOLORBUTTON;
+    _departureButton.layer.cornerRadius = 25.0;
     [_departureButton addTarget:self action:@selector(placeButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_departureButton];
+    [self.placeContainerView addSubview:_departureButton];
 }
 -(void)addArrivalButton{
     _arrivalButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_arrivalButton setTitle:@"To" forState:UIControlStateNormal];
-    _arrivalButton.tintColor = [UIColor blackColor];
-    [_arrivalButton.titleLabel setFont:[UIFont fontWithName:@"Snell Roundhand" size:22.0]];
-    _arrivalButton.frame = CGRectMake(30.0, CGRectGetMaxY(_departureButton.frame)+50, [UIScreen mainScreen].bounds.size.width - 60.0, 60.0);
-    _arrivalButton.backgroundColor = [UIColor colorWithRed:116.0f/255.0f
-                                                     green:186.0f/255.0f
-                                                      blue:242.0f/255.0f
-                                                     alpha:1.0f];
+    _arrivalButton.tintColor = [UIColor whiteColor];
+    [_arrivalButton.titleLabel setFont:BUTTON_FONT_STYLE_SIZE];
+    _arrivalButton.frame = CGRectMake((_placeContainerView.frame.size.width - (_placeContainerView.frame.size.width - 125.0)) / 2, CGRectGetMaxY(_departureButton.frame) + 40,  _placeContainerView.frame.size.width - 125.0, 60.0);
+    _arrivalButton.layer.cornerRadius = 25.0;
+    _arrivalButton.backgroundColor = BACKGROUNDCOLORBUTTON;
     [_arrivalButton addTarget:self action:@selector(placeButtonDidTap:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_arrivalButton];
+    [self.placeContainerView addSubview:_arrivalButton];
+}
+-(void)addSearchButton{
+    _searchButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [_searchButton.titleLabel setFont:BUTTON_FONT_STYLE_SIZE];
+    [_searchButton setTitle: @"Let's Find" forState: UIControlStateNormal];
+    _searchButton.tintColor = BACKGROUNDCOLORBUTTON;
+    _searchButton.frame = CGRectMake((_placeContainerView.frame.size.width - (_placeContainerView.frame.size.width - 125.0)) / 2 + 20, CGRectGetMaxY(_placeContainerView.frame) + 50, _placeContainerView.frame.size.width - 125.0,  40.0);
+    _searchButton.backgroundColor = [UIColor whiteColor];
+    _searchButton.layer.cornerRadius = 25.0;
+    _searchButton.titleLabel.font = [UIFont systemFontOfSize: 20.0 weight: UIFontWeightBold];
+    [self.view addSubview: _searchButton];
+
+
 }
 -(void)placeButtonDidTap:(UIButton *)sender{
     PlaceViewController *placeViewController;
@@ -76,12 +113,16 @@ typedef struct SearchRequest {
     placeViewController.delegate = self;
     [self.navigationController pushViewController:placeViewController animated:YES];
 }
-//-(void) dealloc{
-//    [[NSNotificationCenter defaultCenter] removeObserver:self  name:kDataManagerLoadDataDidComplete object:nil];
-//}
-//- (void)loadDataComplete{
-//    self.view.backgroundColor = [UIColor yellowColor];
-//}
+-(void) dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kDataManagerLoadDataDidComplete
+                                                  object:nil];
+}
+- (void)dataLoadedSuccessfully{
+    [[APIManager sharedInstance] cityForCurrentIP: ^(City  *city){
+        [self setPlace:city withDataType: DataSourceTypeCity andPlaceType:PlaceTypeDeparture forButton: _departureButton];
+    }];
+}
 
 
 #pragma mark - PlaceViewControllerDelegate
@@ -95,7 +136,14 @@ typedef struct SearchRequest {
     NSString *iata;
     
     title = place.name;
-   
+//    iata = (dataType == DataSourceTypeCity) ? place.code : ((^)(id place){
+//        Airport *airport = (Airport*)place;
+//        return airport.cityCode;
+//    });
+//    double v = (double ^(double firstValue, double secondValuexf) {
+//        return firstValue * secondValue;
+//    });
+    
     if(dataType == DataSourceTypeCity){
         iata = place.code;
     }else if(dataType == DataSourceTypeAirport){

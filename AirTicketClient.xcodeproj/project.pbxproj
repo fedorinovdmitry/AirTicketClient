@@ -10,10 +10,11 @@
 		2D42D751209455B80098DF3A /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D42D74E209455B80098DF3A /* countries.json */; };
 		2D42D752209455B80098DF3A /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D42D74F209455B80098DF3A /* cities.json */; };
 		2D42D753209455B80098DF3A /* airports.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D42D750209455B80098DF3A /* airports.json */; };
+		2D84D47220946DA400F6943E /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D84D47120946DA400F6943E /* APIManager.m */; };
+		2DCD70F62094A7A0008F3BFA /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DCD70F52094A7A0008F3BFA /* Ticket.m */; };
 		2DD62D3E20934E9B00E17238 /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD62D3D20934E9B00E17238 /* PlaceViewController.m */; };
 		4947924E208DD78000337523 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4947924D208DD78000337523 /* AppDelegate.m */; };
 		49479251208DD78000337523 /* StartingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49479250208DD78000337523 /* StartingViewController.m */; };
-		49479256208DD78000337523 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49479255208DD78000337523 /* Assets.xcassets */; };
 		49479259208DD78000337523 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49479257208DD78000337523 /* LaunchScreen.storyboard */; };
 		4947925C208DD78000337523 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4947925B208DD78000337523 /* main.m */; };
 		4947926B208DDCB300337523 /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = 4947926A208DDCB300337523 /* Country.m */; };
@@ -27,6 +28,10 @@
 		2D42D74F209455B80098DF3A /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
 		2D42D750209455B80098DF3A /* airports.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = airports.json; sourceTree = "<group>"; };
 		2D42D754209456570098DF3A /* PlaceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceProtocol.h; sourceTree = "<group>"; };
+		2D84D47020946DA400F6943E /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
+		2D84D47120946DA400F6943E /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
+		2DCD70F42094A7A0008F3BFA /* Ticket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ticket.h; sourceTree = "<group>"; };
+		2DCD70F52094A7A0008F3BFA /* Ticket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ticket.m; sourceTree = "<group>"; };
 		2DD62D3C20934E9B00E17238 /* PlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
 		2DD62D3D20934E9B00E17238 /* PlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
 		49479249208DD78000337523 /* AirTicketClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirTicketClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,7 +39,6 @@
 		4947924D208DD78000337523 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4947924F208DD78000337523 /* StartingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartingViewController.h; sourceTree = "<group>"; };
 		49479250208DD78000337523 /* StartingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartingViewController.m; sourceTree = "<group>"; };
-		49479255208DD78000337523 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49479258208DD78000337523 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4947925A208DD78000337523 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4947925B208DD78000337523 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 		2DEF699720946CC80016BE45 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				2D84D47020946DA400F6943E /* APIManager.h */,
+				2D84D47120946DA400F6943E /* APIManager.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -114,7 +120,6 @@
 				4947924D208DD78000337523 /* AppDelegate.m */,
 				49479272208DE6C300337523 /* DataManager.h */,
 				49479273208DE6C300337523 /* DataManager.m */,
-				49479255208DD78000337523 /* Assets.xcassets */,
 				49479257208DD78000337523 /* LaunchScreen.storyboard */,
 				4947925A208DD78000337523 /* Info.plist */,
 				4947925B208DD78000337523 /* main.m */,
@@ -132,6 +137,8 @@
 				4947926F208DDCD800337523 /* Airport.h */,
 				49479270208DDCD800337523 /* Airport.m */,
 				2D42D754209456570098DF3A /* PlaceProtocol.h */,
+				2DCD70F42094A7A0008F3BFA /* Ticket.h */,
+				2DCD70F52094A7A0008F3BFA /* Ticket.m */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -197,7 +204,6 @@
 				2D42D752209455B80098DF3A /* cities.json in Resources */,
 				2D42D751209455B80098DF3A /* countries.json in Resources */,
 				49479259208DD78000337523 /* LaunchScreen.storyboard in Resources */,
-				49479256208DD78000337523 /* Assets.xcassets in Resources */,
 				2D42D753209455B80098DF3A /* airports.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,8 +217,10 @@
 			files = (
 				4947926E208DDCC500337523 /* City.m in Sources */,
 				4947926B208DDCB300337523 /* Country.m in Sources */,
+				2D84D47220946DA400F6943E /* APIManager.m in Sources */,
 				49479274208DE6C300337523 /* DataManager.m in Sources */,
 				49479251208DD78000337523 /* StartingViewController.m in Sources */,
+				2DCD70F62094A7A0008F3BFA /* Ticket.m in Sources */,
 				2DD62D3E20934E9B00E17238 /* PlaceViewController.m in Sources */,
 				49479271208DDCD800337523 /* Airport.m in Sources */,
 				4947925C208DD78000337523 /* main.m in Sources */,

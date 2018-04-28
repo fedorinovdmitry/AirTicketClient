@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DataManager.h"
 #import "PlaceViewController.h"
-
+#import "APIManager.h"
 @interface StartingViewController : UIViewController
 
 
