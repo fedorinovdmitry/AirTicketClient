@@ -25,5 +25,6 @@ typedef enum DataSourceType{
 @property (nonatomic,strong,readonly)NSArray *countries;
 @property (nonatomic,strong,readonly)NSArray *cities;
 @property (nonatomic,strong,readonly)NSArray *airports;
+-(City *)cityForLocation:(CLLocation *)location;
 
 @end

@@ -9,7 +9,8 @@
 #import "AppDelegate.h"
 #import "StartingViewController.h"
 #import "PlaceViewController.h"
-
+#import "MapViewController.h"
+#import "ChooseViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -22,11 +23,12 @@
     CGRect frame = [UIScreen mainScreen].bounds;
     self.window = [[UIWindow alloc] initWithFrame:frame];
     
-    StartingViewController *startingViewController = [[StartingViewController alloc] init];
-    startingViewController.view.backgroundColor = [UIColor whiteColor];
-//    PlaceViewController *placeViewController = [[PlaceViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:startingViewController];
-    
+//    StartingViewController *startingViewController = [[StartingViewController alloc] init];
+//    startingViewController.view.backgroundColor = [UIColor whiteColor];
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:startingViewController];
+    ChooseViewController *chooseViewController = [[ChooseViewController alloc] init];
+    chooseViewController.view.backgroundColor = [UIColor whiteColor];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:chooseViewController];
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     
@@ -59,6 +61,5 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
 
 @end

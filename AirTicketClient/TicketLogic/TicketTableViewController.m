@@ -20,7 +20,7 @@
     self  = [ super   init ];
     if  ( self ){
         _tickets  = tickets;
-        self.title  =  @"Билеты" ;
+        self.title  =  @"Tickets" ;
         self.tableView.separatorStyle  =  UITableViewCellSeparatorStyleNone ;
         [self.tableView  registerClass:[TicketTableViewCell  class] forCellReuseIdentifier :TicketCellReuseIdentifier];
     }

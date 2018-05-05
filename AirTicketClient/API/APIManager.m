@@ -12,7 +12,7 @@
 #define API_URL_IP_ADDRESS @"https://api.ipify.org/?format=json"
 #define API_URL_CHEAP @"https://api.travelpayouts.com/v1/prices/cheap"
 #define API_URL_CITY_FROM_IP @"https://www.travelpayouts.com/whereami?ip="
-
+#define API_URL_MAP_PRICE @"https://api.travelpayouts.com/v1/prices/cheap"
 
 @implementation APIManager
 
@@ -67,9 +67,11 @@
 
 -(void)ticketsWithRequest:(SearchRequest)request withCompletion:(void (^)(NSArray *tickets))completion{
     NSString *urlString = [NSString stringWithFormat: @"%@?%@&token=%@" , API_URL_CHEAP, SearchRequestQuery(request), API_TOKEN];
+    NSLog(@"%@", urlString);
     [self load:urlString withCompletion:^(id _Nullable result) {
         NSDictionary *response = result;
         if (response){
+            NSLog(@"%@", response);
             NSDictionary *json = [[response valueForKey: @"data"] valueForKey: request.destionation];  NSMutableArray *array = [NSMutableArray  new ];
             for (NSString  *key in json) {
                 NSDictionary *value = [json valueForKey: key];
@@ -98,6 +100,27 @@ NSString *SearchRequestQuery(SearchRequest  request) {
     }
     return result;
     
+}
+-(void)mapPricesFor:(City *)origin withCompletion:(void (^)(NSArray *prices))completion{
+    static BOOL isLoading;
+    if (isLoading){
+        return;
+    }
+    isLoading = YES;
+    [self load:[NSString stringWithFormat:@"%@%@", API_URL_MAP_PRICE, origin.code] withCompletion:^(id  _Nullable result) {
+        NSArray *array = result;
+        NSMutableArray *prices = [NSMutableArray new];
+        if (array){
+            for (NSDictionary *mapPriceDictionary in array){
+                MapPrice *mapPrice =[[MapPrice alloc]initWithDictionary:mapPriceDictionary withOrigin:origin];
+                [prices addObject:mapPrice];
+            }
+            isLoading = NO;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(prices);
+            });
+        }
+    }];
 }
 
 
