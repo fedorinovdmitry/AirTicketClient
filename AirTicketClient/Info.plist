@@ -4,6 +4,14 @@
 <dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Can we use your location for creating a map?</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Can we use your location for creating a map?</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Can we use your location for creating a map?</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Can we use your location for creating a map?</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

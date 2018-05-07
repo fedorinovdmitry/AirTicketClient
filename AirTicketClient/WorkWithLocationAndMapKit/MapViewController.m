@@ -60,7 +60,7 @@
 }
 -(void)setPrices:(NSArray *)prices {
     _prices = prices;
-    [_mapView removeAnnotation:_mapView.annotations];
+//    [_mapView removeAnnotation:_mapView.annotations];
     
     for (MapPrice *price in prices){
         dispatch_async(dispatch_get_main_queue(), ^{
