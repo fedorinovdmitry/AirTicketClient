@@ -10,6 +10,8 @@
 #import "LocationService.h"
 #import "APIManager.h"
 
+#define MARK_ID @"MarkerIdentifier"
+
 @interface MapViewController () <MKMapViewDelegate>
 
 @property (nonatomic,strong) MKMapView *mapView;
@@ -26,6 +28,7 @@
     self.title = @"Price's map";
     _mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
     _mapView.showsUserLocation = YES;
+    _mapView.delegate = self;
     [self.view addSubview: _mapView];
     
     [[DataManager sharedInstance] loadData];
@@ -68,9 +71,22 @@
             annotation.title = [NSString stringWithFormat:@"%@ (%@)", price.destination.name, price.destination.code];
             annotation.subtitle = [NSString stringWithFormat:@"%ld rub.", (long)price.value];
             annotation.coordinate = price.destination.coordinate;
+            
             [_mapView addAnnotation: annotation];
         });
     }
+}
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
+    MKMarkerAnnotationView *annotationView = (MKMarkerAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:MARK_ID];
+    if(!annotationView){
+        annotationView = [[MKMarkerAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:MARK_ID];
+        annotationView.canShowCallout = YES;
+        annotationView.calloutOffset = CGPointMake(-5.0, 5.0);
+        annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        
+    }
+    annotationView.annotation = annotation;
+    return annotationView;
 }
 /*
 #pragma mark - Navigation

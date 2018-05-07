@@ -80,7 +80,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle                 reuseIdentifier:ReuseIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle reuseIdentifier:ReuseIdentifier];
         cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
     }
     [cell.detailTextLabel setFont:[UIFont fontWithName:@"Superclarendon-Light" size:11.0]];
