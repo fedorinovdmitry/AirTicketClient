@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D08660F20AD935B00778B04 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D08660D20AD935B00778B04 /* TabBarController.m */; };
+		2D08661120AD94DA00778B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D08661020AD94DA00778B04 /* Assets.xcassets */; };
 		2D1257D12094C1F000374432 /* TicketTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1257D02094C1F000374432 /* TicketTableViewController.m */; };
 		2D1BE442209C88040038F4D2 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1BE441209C88040038F4D2 /* LocationService.m */; };
 		2D1FBE6D2094BABC004B85C6 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D1FBE6A2094BABC004B85C6 /* countries.json */; };
@@ -32,6 +34,9 @@
 
 /* Begin PBXFileReference section */
 		2752CA98BE4707945410E9B4 /* Pods-AirTicketClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirTicketClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-AirTicketClient/Pods-AirTicketClient.release.xcconfig"; sourceTree = "<group>"; };
+		2D08660D20AD935B00778B04 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		2D08660E20AD935B00778B04 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		2D08661020AD94DA00778B04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D1257CF2094C1F000374432 /* TicketTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketTableViewController.h; sourceTree = "<group>"; };
 		2D1257D02094C1F000374432 /* TicketTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketTableViewController.m; sourceTree = "<group>"; };
 		2D1BE440209C88040038F4D2 /* LocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
@@ -193,8 +198,11 @@
 				49479257208DD78000337523 /* LaunchScreen.storyboard */,
 				4947925A208DD78000337523 /* Info.plist */,
 				4947925B208DD78000337523 /* main.m */,
+				2D08660E20AD935B00778B04 /* TabBarController.h */,
+				2D08660D20AD935B00778B04 /* TabBarController.m */,
 				2D3CFAD0209D2DCB0029CC48 /* ChooseViewController.h */,
 				2D3CFAD1209D2DCB0029CC48 /* ChooseViewController.m */,
+				2D08661020AD94DA00778B04 /* Assets.xcassets */,
 			);
 			path = AirTicketClient;
 			sourceTree = "<group>";
@@ -276,6 +284,7 @@
 				2D1FBE6F2094BABC004B85C6 /* airports.json in Resources */,
 				2D1FBE6D2094BABC004B85C6 /* countries.json in Resources */,
 				49479259208DD78000337523 /* LaunchScreen.storyboard in Resources */,
+				2D08661120AD94DA00778B04 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +330,7 @@
 				49479271208DDCD800337523 /* Airport.m in Sources */,
 				2D1257D12094C1F000374432 /* TicketTableViewController.m in Sources */,
 				2D3CFACF209D1FD20029CC48 /* MapViewController.m in Sources */,
+				2D08660F20AD935B00778B04 /* TabBarController.m in Sources */,
 				4947925C208DD78000337523 /* main.m in Sources */,
 				4947924E208DD78000337523 /* AppDelegate.m in Sources */,
 			);

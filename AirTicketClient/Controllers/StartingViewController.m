@@ -42,7 +42,7 @@
 }
 
 -(void)addPlaceContainerView{
-    _placeContainerView = [[UIView alloc] initWithFrame:CGRectMake(20.0, 110.0, [UIScreen mainScreen].bounds.size.width - 40.0, 200)];
+    _placeContainerView = [[UIView alloc] initWithFrame:CGRectMake(20.0, 145.0, [UIScreen mainScreen].bounds.size.width - 40.0, 200)];
     _placeContainerView.backgroundColor = [UIColor colorWithRed:170.0f/255.0f
                                                           green:235.0f/255.0f
                                                            blue:250.0f/255.0f

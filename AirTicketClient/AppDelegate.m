@@ -11,6 +11,7 @@
 #import "PlaceViewController.h"
 #import "MapViewController.h"
 #import "ChooseViewController.h"
+#import "TabBarController.h"
 @interface AppDelegate ()
 
 @end
@@ -26,10 +27,11 @@
 //    StartingViewController *startingViewController = [[StartingViewController alloc] init];
 //    startingViewController.view.backgroundColor = [UIColor whiteColor];
 //    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:startingViewController];
-    ChooseViewController *chooseViewController = [[ChooseViewController alloc] init];
-    chooseViewController.view.backgroundColor = [UIColor whiteColor];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:chooseViewController];
-    self.window.rootViewController = navigationController;
+//    ChooseViewController *chooseViewController = [[ChooseViewController alloc] init];
+//    chooseViewController.view.backgroundColor = [UIColor whiteColor];
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:chooseViewController];
+    TabBarController *tabVC = [[TabBarController alloc]init];
+    self.window.rootViewController = tabVC;
     [self.window makeKeyAndVisible];
     
     return YES;
