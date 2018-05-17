@@ -134,7 +134,21 @@
     return cell;
     
 }
-
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    cell.alpha = 0;
+    
+    cell.layer.transform = CATransform3DTranslate(CATransform3DIdentity, -10 - self.view.bounds.size.width, 30, 0);
+    
+    
+    [UIView animateWithDuration:0.55 animations:^{
+        cell.alpha = 1;
+        cell.layer.transform = CATransform3DIdentity;
+    }];
+    
+    
+    
+    
+}
 #pragma mark - UITableViewDelegate
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

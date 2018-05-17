@@ -99,15 +99,22 @@
 
 }
 - (void)searchButtonDidTap:(UIButton  *)sender {
-    [[ APIManager  sharedInstance ]  ticketsWithRequest:   _searchRequest  withCompletion :^( NSArray *tickets) {
-        if (tickets. count  > 0) {
-            TicketTableViewController *ticketsViewController = [[TicketTableViewController alloc]  initWithTickets:tickets];
-            [self.navigationController showViewController:ticketsViewController sender : self];
-        }  else {
-            UIAlertController *alertController = [UIAlertController  alertControllerWithTitle: @"Sorry!" message : @"We dont have ticket conected with these cities"  preferredStyle:  UIAlertControllerStyleAlert ]; [alertController  addAction :[ UIAlertAction  actionWithTitle : @"Close" style:( UIAlertActionStyleDefault ) handler: nil ]];
-            [self presentViewController :alertController  animated : YES completion : nil];
-        }
-    }];
+    if (![_departureButton.titleLabel.text  isEqual: @"From"] && ![_arrivalButton.titleLabel.text  isEqual: @"To"]){
+        [[ APIManager  sharedInstance ]  ticketsWithRequest:   _searchRequest  withCompletion :^( NSArray *tickets) {
+            if (tickets. count  > 0) {
+                
+                TicketTableViewController *ticketsViewController = [[TicketTableViewController alloc]  initWithTickets:tickets];
+                [self.navigationController showViewController:ticketsViewController sender : self];
+            }  else {
+                UIAlertController *alertController = [UIAlertController  alertControllerWithTitle: @"Sorry!" message : @"We dont have ticket conected with these cities"  preferredStyle:  UIAlertControllerStyleAlert ]; [alertController  addAction :[ UIAlertAction  actionWithTitle : @"Close" style:( UIAlertActionStyleDefault ) handler: nil ]];
+                [self presentViewController :alertController  animated : YES completion : nil];
+            }
+        }];
+    }else{
+        UIAlertController *alertController = [UIAlertController  alertControllerWithTitle: @"Sorry!" message : @"You didn't input some city or airport"  preferredStyle:  UIAlertControllerStyleAlert ]; [alertController  addAction :[ UIAlertAction  actionWithTitle : @"Close" style:( UIAlertActionStyleDefault ) handler: nil ]];
+        [self presentViewController :alertController  animated : YES completion : nil];
+    }
+    
     
 }
 
