@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		2D08660F20AD935B00778B04 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D08660D20AD935B00778B04 /* TabBarController.m */; };
 		2D08661120AD94DA00778B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D08661020AD94DA00778B04 /* Assets.xcassets */; };
+		2D0A75BE20B1B446008AC5FF /* FavoriteTicket.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 2D0D337720ADE9B300B59CB4 /* FavoriteTicket.xcdatamodeld */; };
 		2D0D337920ADE9B300B59CB4 /* FavoriteTicket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D0D337720ADE9B300B59CB4 /* FavoriteTicket.xcdatamodeld */; };
-		2D0D338620ADEB2600B59CB4 /* FavoriteTicket+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0D338220ADEB2600B59CB4 /* FavoriteTicket+CoreDataClass.m */; };
-		2D0D338720ADEB2600B59CB4 /* FavoriteTicket+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0D338320ADEB2600B59CB4 /* FavoriteTicket+CoreDataProperties.m */; };
 		2D0D338A20ADEB5A00B59CB4 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0D338920ADEB5A00B59CB4 /* CoreDataHelper.m */; };
+		2D0D338F20AEEB2400B59CB4 /* FavoriteTicket+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0D338B20AEEB2300B59CB4 /* FavoriteTicket+CoreDataClass.m */; };
+		2D0D339020AEEB2400B59CB4 /* FavoriteTicket+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0D338C20AEEB2300B59CB4 /* FavoriteTicket+CoreDataProperties.m */; };
 		2D1257D12094C1F000374432 /* TicketTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1257D02094C1F000374432 /* TicketTableViewController.m */; };
 		2D1BE442209C88040038F4D2 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1BE441209C88040038F4D2 /* LocationService.m */; };
 		2D1FBE6D2094BABC004B85C6 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D1FBE6A2094BABC004B85C6 /* countries.json */; };
@@ -42,12 +43,12 @@
 		2D08660E20AD935B00778B04 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		2D08661020AD94DA00778B04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D0D337820ADE9B300B59CB4 /* FavoriteTicket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteTicket.xcdatamodel; sourceTree = "<group>"; };
-		2D0D338220ADEB2600B59CB4 /* FavoriteTicket+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FavoriteTicket+CoreDataClass.m"; sourceTree = "<group>"; };
-		2D0D338320ADEB2600B59CB4 /* FavoriteTicket+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FavoriteTicket+CoreDataProperties.m"; sourceTree = "<group>"; };
-		2D0D338420ADEB2600B59CB4 /* FavoriteTicket+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FavoriteTicket+CoreDataClass.h"; sourceTree = "<group>"; };
-		2D0D338520ADEB2600B59CB4 /* FavoriteTicket+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FavoriteTicket+CoreDataProperties.h"; sourceTree = "<group>"; };
 		2D0D338820ADEB5A00B59CB4 /* CoreDataHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
 		2D0D338920ADEB5A00B59CB4 /* CoreDataHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
+		2D0D338B20AEEB2300B59CB4 /* FavoriteTicket+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FavoriteTicket+CoreDataClass.m"; sourceTree = "<group>"; };
+		2D0D338C20AEEB2300B59CB4 /* FavoriteTicket+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FavoriteTicket+CoreDataProperties.m"; sourceTree = "<group>"; };
+		2D0D338D20AEEB2300B59CB4 /* FavoriteTicket+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FavoriteTicket+CoreDataClass.h"; sourceTree = "<group>"; };
+		2D0D338E20AEEB2300B59CB4 /* FavoriteTicket+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FavoriteTicket+CoreDataProperties.h"; sourceTree = "<group>"; };
 		2D1257CF2094C1F000374432 /* TicketTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicketTableViewController.h; sourceTree = "<group>"; };
 		2D1257D02094C1F000374432 /* TicketTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicketTableViewController.m; sourceTree = "<group>"; };
 		2D1BE440209C88040038F4D2 /* LocationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationService.h; sourceTree = "<group>"; };
@@ -114,12 +115,12 @@
 		2D0D337A20ADEAB800B59CB4 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				2D0D338420ADEB2600B59CB4 /* FavoriteTicket+CoreDataClass.h */,
-				2D0D338220ADEB2600B59CB4 /* FavoriteTicket+CoreDataClass.m */,
-				2D0D338520ADEB2600B59CB4 /* FavoriteTicket+CoreDataProperties.h */,
-				2D0D338320ADEB2600B59CB4 /* FavoriteTicket+CoreDataProperties.m */,
 				2D0D338820ADEB5A00B59CB4 /* CoreDataHelper.h */,
 				2D0D338920ADEB5A00B59CB4 /* CoreDataHelper.m */,
+				2D0D338D20AEEB2300B59CB4 /* FavoriteTicket+CoreDataClass.h */,
+				2D0D338B20AEEB2300B59CB4 /* FavoriteTicket+CoreDataClass.m */,
+				2D0D338E20AEEB2300B59CB4 /* FavoriteTicket+CoreDataProperties.h */,
+				2D0D338C20AEEB2300B59CB4 /* FavoriteTicket+CoreDataProperties.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -306,6 +307,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D0A75BE20B1B446008AC5FF /* FavoriteTicket.xcdatamodeld in Resources */,
 				2D1FBE6E2094BABC004B85C6 /* cities.json in Resources */,
 				2D1FBE6F2094BABC004B85C6 /* airports.json in Resources */,
 				2D1FBE6D2094BABC004B85C6 /* countries.json in Resources */,
@@ -342,16 +344,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D0D338620ADEB2600B59CB4 /* FavoriteTicket+CoreDataClass.m in Sources */,
 				4947926E208DDCC500337523 /* City.m in Sources */,
+				2D0D338F20AEEB2400B59CB4 /* FavoriteTicket+CoreDataClass.m in Sources */,
 				2D3CFAD2209D2DCB0029CC48 /* ChooseViewController.m in Sources */,
 				4947926B208DDCB300337523 /* Country.m in Sources */,
-				2D0D338720ADEB2600B59CB4 /* FavoriteTicket+CoreDataProperties.m in Sources */,
 				2D84D47220946DA400F6943E /* APIManager.m in Sources */,
 				2D0D338A20ADEB5A00B59CB4 /* CoreDataHelper.m in Sources */,
 				49479274208DE6C300337523 /* DataManager.m in Sources */,
 				2D0D337920ADE9B300B59CB4 /* FavoriteTicket.xcdatamodeld in Sources */,
 				2D285E922094BC44001CD32F /* TicketTableViewCell.m in Sources */,
+				2D0D339020AEEB2400B59CB4 /* FavoriteTicket+CoreDataProperties.m in Sources */,
 				49479251208DD78000337523 /* StartingViewController.m in Sources */,
 				2D3CFACC209C9CC10029CC48 /* MapPrice.m in Sources */,
 				2DCD70F62094A7A0008F3BFA /* Ticket.m in Sources */,

@@ -23,6 +23,23 @@
     return  self;
 }
 
+-(instancetype)initWithFavorite:(FavoriteTicket *)favorite{
+    self = [super init];
+    if(self){
+        _price = [NSNumber numberWithLong:favorite.price];
+        _airline = favorite.airline;
+        _departure = favorite.departure;
+        _expires = favorite.expires;
+        _flightNumber = [NSNumber numberWithInt:favorite.flightNumber];
+        _returnDate = favorite.returnDate;
+        _from = favorite.from;
+        _to = favorite.to;
+        _fromFullName = favorite.fromFullName;
+        _toFullName = favorite.toFullName;
+    }
+    return self;
+}
+
 NSDate *dateFromString(NSString *dateString) {
     if (!dateString) {
         return nil;

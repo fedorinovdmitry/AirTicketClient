@@ -67,17 +67,20 @@
 
 -(void)ticketsWithRequest:(SearchRequest)request withCompletion:(void (^)(NSArray *tickets))completion{
     NSString *urlString = [NSString stringWithFormat: @"%@?%@&token=%@" , API_URL_CHEAP, SearchRequestQuery(request), API_TOKEN];
-    NSLog(@"%@", urlString);
+//    NSLog(@"%@", urlString);
     [self load:urlString withCompletion:^(id _Nullable result) {
         NSDictionary *response = result;
+        NSLog(@"результат с билетами %@", result);
         if (response){
-            NSLog(@"%@", response);
+            
             NSDictionary *json = [[response valueForKey: @"data"] valueForKey: request.destionation];  NSMutableArray *array = [NSMutableArray  new ];
             for (NSString  *key in json) {
                 NSDictionary *value = [json valueForKey: key];
                 Ticket *ticket = [[Ticket alloc ] initWithDictionary:value];
                 ticket.from = request.origin;
-                ticket.to = request.destionation ;
+                ticket.to = request.destionation;
+                ticket.fromFullName = request.originCityFullName;
+                ticket.toFullName = request.destionationCityFullName;
                 [array addObject:ticket];
             }
             dispatch_async (dispatch_get_main_queue (), ^{

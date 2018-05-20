@@ -154,13 +154,7 @@
     NSString *iata;
     
     title = place.name;
-//    iata = (dataType == DataSourceTypeCity) ? place.code : ((^)(id place){
-//        Airport *airport = (Airport*)place;
-//        return airport.cityCode;
-//    });
-//    double v = (double ^(double firstValue, double secondValuexf) {
-//        return firstValue * secondValue;
-//    });
+
     
     if(dataType == DataSourceTypeCity){
         iata = place.code;
@@ -171,9 +165,12 @@
     
     if (placeType == PlaceTypeDeparture){
         _searchRequest.origin = iata;
+        _searchRequest.originCityFullName = place.name;
     }else {
         _searchRequest.destionation = iata;
+        _searchRequest.destionationCityFullName = place.name;
     }
+    
     [button setTitle: title forState: UIControlStateNormal];
 }
 

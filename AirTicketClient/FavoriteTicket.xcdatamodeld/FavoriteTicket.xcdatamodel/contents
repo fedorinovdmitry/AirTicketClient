@@ -7,11 +7,13 @@
         <attribute name="expires" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="flightNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="from" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fromFullName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="returnDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="to" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="toFullName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="FavoriteTicket" positionX="-63" positionY="-18" width="128" height="178"/>
+        <element name="FavoriteTicket" positionX="-63" positionY="-18" width="128" height="208"/>
     </elements>
 </model>

@@ -9,7 +9,7 @@
 #import "TabBarController.h"
 #import "StartingViewController.h"
 #import "MapViewController.h"
-
+#import "TicketTableViewController.h"
 @interface TabBarController ()
 
 @end
@@ -36,6 +36,13 @@
     mapViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Map price" image:[UIImage imageNamed:@"map1"] selectedImage:[UIImage imageNamed:@"map_selected1"]];
     UINavigationController *mapNavigationController = [[UINavigationController alloc] initWithRootViewController:mapViewController];
     [controllers addObject:mapNavigationController];
+    
+    TicketTableViewController *favoriteViewController = [[TicketTableViewController alloc] initFavoriteTicketsController];
+    favoriteViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Favorites" image:[UIImage imageNamed:@"favorite1"] selectedImage:[UIImage imageNamed:@"favorite_selected1"]];
+    UINavigationController *favoriteNavigationController = [[UINavigationController alloc] initWithRootViewController:favoriteViewController];
+    [controllers addObject:favoriteNavigationController];
+    
+    
     
     return controllers;
 }

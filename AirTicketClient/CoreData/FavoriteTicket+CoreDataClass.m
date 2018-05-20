@@ -2,7 +2,7 @@
 //  FavoriteTicket+CoreDataClass.m
 //  
 //
-//  Created by Дмитрий Федоринов on 17.05.2018.
+//  Created by Дмитрий Федоринов on 18.05.2018.
 //
 //
 

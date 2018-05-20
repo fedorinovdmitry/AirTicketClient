@@ -2,7 +2,7 @@
 //  FavoriteTicket+CoreDataProperties.h
 //  
 //
-//  Created by Дмитрий Федоринов on 17.05.2018.
+//  Created by Дмитрий Федоринов on 18.05.2018.
 //
 //
 
@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSDate *departure;
 @property (nonatomic) int16_t flightNumber;
 @property (nonatomic) int64_t price;
+@property (nullable, nonatomic, copy) NSString *toFullName;
+@property (nullable, nonatomic, copy) NSString *fromFullName;
 
 @end
 

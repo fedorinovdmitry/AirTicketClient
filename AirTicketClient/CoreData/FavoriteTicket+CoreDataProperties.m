@@ -2,7 +2,7 @@
 //  FavoriteTicket+CoreDataProperties.m
 //  
 //
-//  Created by Дмитрий Федоринов on 17.05.2018.
+//  Created by Дмитрий Федоринов on 18.05.2018.
 //
 //
 
@@ -23,5 +23,7 @@
 @dynamic departure;
 @dynamic flightNumber;
 @dynamic price;
+@dynamic toFullName;
+@dynamic fromFullName;
 
 @end

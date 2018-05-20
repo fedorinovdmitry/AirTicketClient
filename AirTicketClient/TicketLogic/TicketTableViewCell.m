@@ -10,10 +10,10 @@
 #define AirlineLogo(iata) [NSURL URLWithString:[NSString stringWithFormat:@"https://pics.avs.io/200/200/%@.png", iata]];
 @interface TicketTableViewCell()
 
-@property  ( nonatomic ,  strong )  UIImageView  *airlineLogoView;
-@property  ( nonatomic ,  strong )  UILabel  *priceLabel;
-@property  ( nonatomic ,  strong )  UILabel  *placesLabel;
-@property  ( nonatomic ,  strong )  UILabel  *dateLabel;
+@property ( nonatomic ,  strong )  UIImageView  *airlineLogoView;
+@property ( nonatomic ,  strong )  UILabel  *priceLabel;
+@property ( nonatomic ,  strong )  UILabel  *placesLabel;
+@property ( nonatomic ,  strong )  UILabel  *dateLabel;
 
 @end
 @implementation TicketTableViewCell
@@ -57,7 +57,7 @@
 - ( void )setTicket:( Ticket  *)ticket {
     _ticket  = ticket;
     _priceLabel.text  = [NSString  stringWithFormat : @"%@ rub.", ticket.price ];
-    _placesLabel.text = [NSString   stringWithFormat : @"%@ - %@", ticket.from , ticket.to ];
+    _placesLabel.text = [NSString   stringWithFormat : @"%@ - %@", ticket.from, ticket.to ];
     NSDateFormatter  *dateFormatter = [[ NSDateFormatter alloc] init];
     dateFormatter. dateFormat =  @"dd MMMM yyyy hh:mm" ;
     _dateLabel.text = [dateFormatter  stringFromDate :ticket. departure ];
