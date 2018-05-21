@@ -49,6 +49,15 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
+    _textView = [[UITextView alloc]initWithFrame:CGRectMake((self.view.bounds.size.width - 180) / 2, (self.view.bounds.size.height - 250) / 2, 200, 70)];
+    _textView.backgroundColor = UIColor.whiteColor;
+    _textView.textColor = [UIColor colorWithRed:16.0f/255.0f green:75.0f/255.0f blue:201.0f/255.0f alpha:0.5f];
+    _textView.font = [UIFont fontWithName:@"SnellRoundhand-Bold" size:20.0];
+    
+    _textView.text = @"   you dont'have Favorites Tickets";
+    _textView.alpha = 0;
+    [self.view addSubview:_textView];
+    
     if(isFavorites){
         self.navigationController.navigationBar.prefersLargeTitles = YES;
 //        NSArray *favorites = [[CoreDataHelper sharedinstance] favorites];
@@ -59,21 +68,23 @@
 //        }
 //        _tickets = favTicket;
         
-        [_tickets addObjectsFromArray:[[CoreDataHelper sharedinstance] favorites]];
+        
         if ([_tickets count] > 0){
-            _textView.alpha = 0;
+            [_tickets removeAllObjects];
+            [_tickets addObjectsFromArray:[[CoreDataHelper sharedinstance] favorites]];
+            
+        }else{
+            [_tickets addObjectsFromArray:[[CoreDataHelper sharedinstance] favorites]];
+        }
+        if ([_tickets count] > 0){
+             _textView.alpha = 0;
         }
         [self.tableView reloadData];
     }
+   
     if (isFavorites && [_tickets count] == 0){
-        _textView = [[UITextView alloc]initWithFrame:CGRectMake((self.view.bounds.size.width - 180) / 2, (self.view.bounds.size.height - 250) / 2, 200, 70)];
-        _textView.backgroundColor = UIColor.whiteColor;
-        _textView.textColor = [UIColor colorWithRed:16.0f/255.0f green:75.0f/255.0f blue:201.0f/255.0f alpha:0.5f];
-        _textView.font = [UIFont fontWithName:@"SnellRoundhand-Bold" size:20.0];
+        _textView.alpha = 1;
         
-        _textView.text = @"   you dont'have Favorites Tickets";
-        
-        [self.view addSubview:_textView];
     }
     
 }

@@ -11,6 +11,8 @@
 		2D08661120AD94DA00778B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D08661020AD94DA00778B04 /* Assets.xcassets */; };
 		2D0A75BE20B1B446008AC5FF /* FavoriteTicket.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 2D0D337720ADE9B300B59CB4 /* FavoriteTicket.xcdatamodeld */; };
 		2D0A75C220B2BF84008AC5FF /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0A75C120B2BF84008AC5FF /* ProgressView.m */; };
+		2D0A75C620B2DAF8008AC5FF /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0A75C520B2DAF8008AC5FF /* ContentViewController.m */; };
+		2D0A75CC20B2F9B0008AC5FF /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0A75CB20B2F9B0008AC5FF /* FirstViewController.m */; };
 		2D0D337920ADE9B300B59CB4 /* FavoriteTicket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D0D337720ADE9B300B59CB4 /* FavoriteTicket.xcdatamodeld */; };
 		2D0D338A20ADEB5A00B59CB4 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0D338920ADEB5A00B59CB4 /* CoreDataHelper.m */; };
 		2D0D338F20AEEB2400B59CB4 /* FavoriteTicket+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0D338B20AEEB2300B59CB4 /* FavoriteTicket+CoreDataClass.m */; };
@@ -45,6 +47,10 @@
 		2D08661020AD94DA00778B04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D0A75C020B2BF84008AC5FF /* ProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
 		2D0A75C120B2BF84008AC5FF /* ProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
+		2D0A75C420B2DAF8008AC5FF /* ContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
+		2D0A75C520B2DAF8008AC5FF /* ContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
+		2D0A75CA20B2F9B0008AC5FF /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		2D0A75CB20B2F9B0008AC5FF /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		2D0D337820ADE9B300B59CB4 /* FavoriteTicket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteTicket.xcdatamodel; sourceTree = "<group>"; };
 		2D0D338820ADEB5A00B59CB4 /* CoreDataHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
 		2D0D338920ADEB5A00B59CB4 /* CoreDataHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
@@ -122,6 +128,17 @@
 				2D0A75C120B2BF84008AC5FF /* ProgressView.m */,
 			);
 			path = ProgressOFDownloadScreenLogic;
+			sourceTree = "<group>";
+		};
+		2D0A75C320B2DAA6008AC5FF /* UsetGreetingLocgic */ = {
+			isa = PBXGroup;
+			children = (
+				2D0A75C420B2DAF8008AC5FF /* ContentViewController.h */,
+				2D0A75C520B2DAF8008AC5FF /* ContentViewController.m */,
+				2D0A75CA20B2F9B0008AC5FF /* FirstViewController.h */,
+				2D0A75CB20B2F9B0008AC5FF /* FirstViewController.m */,
+			);
+			path = UsetGreetingLocgic;
 			sourceTree = "<group>";
 		};
 		2D0D337A20ADEAB800B59CB4 /* CoreData */ = {
@@ -222,6 +239,7 @@
 		4947924B208DD78000337523 /* AirTicketClient */ = {
 			isa = PBXGroup;
 			children = (
+				2D0A75C320B2DAA6008AC5FF /* UsetGreetingLocgic */,
 				2D0A75BF20B2BF41008AC5FF /* ProgressOFDownloadScreenLogic */,
 				2D0D337A20ADEAB800B59CB4 /* CoreData */,
 				2D1BE43F209C87B50038F4D2 /* WorkWithLocationAndMapKit */,
@@ -360,9 +378,11 @@
 				4947926E208DDCC500337523 /* City.m in Sources */,
 				2D0D338F20AEEB2400B59CB4 /* FavoriteTicket+CoreDataClass.m in Sources */,
 				2D3CFAD2209D2DCB0029CC48 /* ChooseViewController.m in Sources */,
+				2D0A75C620B2DAF8008AC5FF /* ContentViewController.m in Sources */,
 				4947926B208DDCB300337523 /* Country.m in Sources */,
 				2D84D47220946DA400F6943E /* APIManager.m in Sources */,
 				2D0D338A20ADEB5A00B59CB4 /* CoreDataHelper.m in Sources */,
+				2D0A75CC20B2F9B0008AC5FF /* FirstViewController.m in Sources */,
 				49479274208DE6C300337523 /* DataManager.m in Sources */,
 				2D0D337920ADE9B300B59CB4 /* FavoriteTicket.xcdatamodeld in Sources */,
 				2D285E922094BC44001CD32F /* TicketTableViewCell.m in Sources */,

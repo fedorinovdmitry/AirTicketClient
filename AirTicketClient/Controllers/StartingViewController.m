@@ -10,7 +10,7 @@
 #define BACKGROUNDCOLORBUTTON [UIColor colorWithRed:16.0f/255.0f green:75.0f/255.0f blue:201.0f/255.0f alpha:1.0f]
 #define BUTTON_FONT_STYLE_SIZE [UIFont fontWithName:@"SnellRoundhand-Bold" size:25.0]
 #import "ProgressView.h"
-
+#import "FirstViewController.h"
 @interface StartingViewController () <PlaceViewControllerDelegate>
 
 @property (nonatomic, strong) UIView *placeContainerView;
@@ -41,7 +41,17 @@
     
     
 }
-
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self presentFirstViewControllerIfNeeded];
+}
+-(void)presentFirstViewControllerIfNeeded{
+    BOOL isFirsStart = [[NSUserDefaults standardUserDefaults] boolForKey:@"first_start"];
+    if (!isFirsStart){
+        FirstViewController *fst = [[FirstViewController alloc]initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+        [self presentViewController:fst animated:YES completion:nil];
+    }
+}
 -(void)addPlaceContainerView{
     _placeContainerView = [[UIView alloc] initWithFrame:CGRectMake(20.0, 145.0, [UIScreen mainScreen].bounds.size.width - 40.0, 200)];
     _placeContainerView.backgroundColor = [UIColor colorWithRed:170.0f/255.0f
