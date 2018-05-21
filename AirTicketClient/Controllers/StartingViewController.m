@@ -9,7 +9,7 @@
 #import "StartingViewController.h"
 #define BACKGROUNDCOLORBUTTON [UIColor colorWithRed:16.0f/255.0f green:75.0f/255.0f blue:201.0f/255.0f alpha:1.0f]
 #define BUTTON_FONT_STYLE_SIZE [UIFont fontWithName:@"SnellRoundhand-Bold" size:25.0]
-
+#import "ProgressView.h"
 
 @interface StartingViewController () <PlaceViewControllerDelegate>
 
@@ -28,6 +28,7 @@
     [[DataManager  sharedInstance] loadData];
     
     self.view.backgroundColor = [UIColor whiteColor];
+    
     self.navigationController.navigationBar.prefersLargeTitles = YES;
     self.title = @"Find";
 //    [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(loadDataComplete) name:kDataManagerLoadDataDidComplete object: nil];
@@ -100,15 +101,25 @@
 }
 - (void)searchButtonDidTap:(UIButton  *)sender {
     if (![_departureButton.titleLabel.text  isEqual: @"From"] && ![_arrivalButton.titleLabel.text  isEqual: @"To"]){
-        [[ APIManager  sharedInstance ]  ticketsWithRequest:   _searchRequest  withCompletion :^( NSArray *tickets) {
-            if (tickets. count  > 0) {
+        
+        [[ProgressView sharedInstance] show:^{
+            [[ APIManager  sharedInstance ]  ticketsWithRequest:   _searchRequest  withCompletion :^( NSArray *tickets) {
                 
-                TicketTableViewController *ticketsViewController = [[TicketTableViewController alloc]  initWithTickets:tickets];
-                [self.navigationController showViewController:ticketsViewController sender : self];
-            }  else {
-                UIAlertController *alertController = [UIAlertController  alertControllerWithTitle: @"Sorry!" message : @"We dont have ticket conected with these cities"  preferredStyle:  UIAlertControllerStyleAlert ]; [alertController  addAction :[ UIAlertAction  actionWithTitle : @"Close" style:( UIAlertActionStyleDefault ) handler: nil ]];
-                [self presentViewController :alertController  animated : YES completion : nil];
-            }
+                // КОД ТОЛЬКО ДЛЯ ТЕСТА:
+//                [NSThread sleepForTimeInterval:5.000];
+                //
+                [[ProgressView sharedInstance] dismiss:^{
+                    if (tickets. count  > 0) {
+                        
+                        TicketTableViewController *ticketsViewController = [[TicketTableViewController alloc]  initWithTickets:tickets];
+                        [self.navigationController showViewController:ticketsViewController sender:self];
+                    }  else {
+                        UIAlertController *alertController = [UIAlertController  alertControllerWithTitle: @"Sorry!" message : @"We dont have ticket conected with these cities"  preferredStyle:  UIAlertControllerStyleAlert ];
+                        [alertController  addAction :[ UIAlertAction  actionWithTitle : @"Close" style:( UIAlertActionStyleDefault ) handler: nil ]];
+                        [self presentViewController :alertController  animated : YES completion : nil];
+                    }
+                }];
+            }];
         }];
     }else{
         UIAlertController *alertController = [UIAlertController  alertControllerWithTitle: @"Sorry!" message : @"You didn't input some city or airport"  preferredStyle:  UIAlertControllerStyleAlert ]; [alertController  addAction :[ UIAlertAction  actionWithTitle : @"Close" style:( UIAlertActionStyleDefault ) handler: nil ]];

@@ -10,6 +10,7 @@
 		2D08660F20AD935B00778B04 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D08660D20AD935B00778B04 /* TabBarController.m */; };
 		2D08661120AD94DA00778B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D08661020AD94DA00778B04 /* Assets.xcassets */; };
 		2D0A75BE20B1B446008AC5FF /* FavoriteTicket.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 2D0D337720ADE9B300B59CB4 /* FavoriteTicket.xcdatamodeld */; };
+		2D0A75C220B2BF84008AC5FF /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0A75C120B2BF84008AC5FF /* ProgressView.m */; };
 		2D0D337920ADE9B300B59CB4 /* FavoriteTicket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D0D337720ADE9B300B59CB4 /* FavoriteTicket.xcdatamodeld */; };
 		2D0D338A20ADEB5A00B59CB4 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0D338920ADEB5A00B59CB4 /* CoreDataHelper.m */; };
 		2D0D338F20AEEB2400B59CB4 /* FavoriteTicket+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0D338B20AEEB2300B59CB4 /* FavoriteTicket+CoreDataClass.m */; };
@@ -42,6 +43,8 @@
 		2D08660D20AD935B00778B04 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		2D08660E20AD935B00778B04 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		2D08661020AD94DA00778B04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2D0A75C020B2BF84008AC5FF /* ProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
+		2D0A75C120B2BF84008AC5FF /* ProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
 		2D0D337820ADE9B300B59CB4 /* FavoriteTicket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteTicket.xcdatamodel; sourceTree = "<group>"; };
 		2D0D338820ADEB5A00B59CB4 /* CoreDataHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
 		2D0D338920ADEB5A00B59CB4 /* CoreDataHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
@@ -110,6 +113,15 @@
 				2752CA98BE4707945410E9B4 /* Pods-AirTicketClient.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		2D0A75BF20B2BF41008AC5FF /* ProgressOFDownloadScreenLogic */ = {
+			isa = PBXGroup;
+			children = (
+				2D0A75C020B2BF84008AC5FF /* ProgressView.h */,
+				2D0A75C120B2BF84008AC5FF /* ProgressView.m */,
+			);
+			path = ProgressOFDownloadScreenLogic;
 			sourceTree = "<group>";
 		};
 		2D0D337A20ADEAB800B59CB4 /* CoreData */ = {
@@ -210,6 +222,7 @@
 		4947924B208DD78000337523 /* AirTicketClient */ = {
 			isa = PBXGroup;
 			children = (
+				2D0A75BF20B2BF41008AC5FF /* ProgressOFDownloadScreenLogic */,
 				2D0D337A20ADEAB800B59CB4 /* CoreData */,
 				2D1BE43F209C87B50038F4D2 /* WorkWithLocationAndMapKit */,
 				2D285E8F2094BC15001CD32F /* TicketLogic */,
@@ -353,6 +366,7 @@
 				49479274208DE6C300337523 /* DataManager.m in Sources */,
 				2D0D337920ADE9B300B59CB4 /* FavoriteTicket.xcdatamodeld in Sources */,
 				2D285E922094BC44001CD32F /* TicketTableViewCell.m in Sources */,
+				2D0A75C220B2BF84008AC5FF /* ProgressView.m in Sources */,
 				2D0D339020AEEB2400B59CB4 /* FavoriteTicket+CoreDataProperties.m in Sources */,
 				49479251208DD78000337523 /* StartingViewController.m in Sources */,
 				2D3CFACC209C9CC10029CC48 /* MapPrice.m in Sources */,

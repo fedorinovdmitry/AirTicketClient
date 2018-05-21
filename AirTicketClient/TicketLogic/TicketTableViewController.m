@@ -133,7 +133,9 @@
                 [[CoreDataHelper sharedinstance] removeFromFavorite:ticket];
                 [_tickets removeObjectAtIndex:indexPath.row];
                 if ([_tickets count] == 0){
-                    _textView.alpha = 1;
+                    [UIView animateWithDuration:2 animations:^{
+                        _textView.alpha = 1;
+                    }];
                 }
                 [self.tableView reloadData];
             }];

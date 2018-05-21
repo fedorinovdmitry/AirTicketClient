@@ -10,6 +10,6 @@
 
 @interface TicketTableViewController: UITableViewController
 
--(instancetype)initWithTickets:(NSMutableArray  *)tickets;
+-(instancetype)initWithTickets:(NSArray  *)tickets;
 -(instancetype)initFavoriteTicketsController;
 @end

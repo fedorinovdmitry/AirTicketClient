@@ -9,7 +9,7 @@
 #import "MapViewController.h"
 #import "LocationService.h"
 #import "APIManager.h"
-
+#import "ProgressView.h"
 #define MARK_ID @"MarkerIdentifier"
 
 @interface MapViewController () <MKMapViewDelegate>
@@ -25,16 +25,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Price's map";
-    _mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
-    _mapView.showsUserLocation = YES;
-    _mapView.delegate = self;
-    [self.view addSubview: _mapView];
+    [[ProgressView sharedInstance] show:^{
+        self.title = @"Price's map";
+        _mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
+        _mapView.showsUserLocation = YES;
+        _mapView.delegate = self;
+        [self.view addSubview: _mapView];
+        
+        [[DataManager sharedInstance] loadData];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataLoadedSuccessfully) name:kDataManagerLoadDataDidComplete object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCurrentLocation:) name:kLocationServiceDidUpdateCurrentLocation object:nil];
+        
+    }];
     
-    [[DataManager sharedInstance] loadData];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataLoadedSuccessfully) name:kDataManagerLoadDataDidComplete object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCurrentLocation:) name:kLocationServiceDidUpdateCurrentLocation object:nil];
     
     
     // Do any additional setup after loading the view.
@@ -45,6 +49,7 @@
 }
 -(void)dataLoadedSuccessfully{
     _locationService = [[LocationService alloc] init];
+    
 }
 -(void)updateCurrentLocation:(NSNotification *)notification{
     CLLocation *currentLocation = notification.object;
@@ -75,6 +80,7 @@
             [_mapView addAnnotation: annotation];
         });
     }
+    [[ProgressView sharedInstance] dismiss:nil];
 }
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
     MKMarkerAnnotationView *annotationView = (MKMarkerAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:MARK_ID];

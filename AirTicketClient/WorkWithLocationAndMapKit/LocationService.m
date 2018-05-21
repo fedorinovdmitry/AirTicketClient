@@ -7,7 +7,7 @@
 //
 
 #import "LocationService.h"
-
+//#import "ProgressView.h"
 
 
 
@@ -38,6 +38,7 @@
         [alertController addAction:[UIAlertAction actionWithTitle:@"Close" style:(UIAlertActionStyleDefault) handler:nil]];
         [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alertController animated:YES completion:nil];
     }
+    
 }
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
     if(!_currentLocation){
