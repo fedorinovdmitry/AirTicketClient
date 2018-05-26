@@ -11,5 +11,8 @@
 #import "Ticket.h"
 
 @interface TicketTableViewCell :  UITableViewCell
+    
 @property (nonatomic,  strong ) Ticket *ticket;
+@property ( nonatomic ,  strong )  UIImageView  *airlineLogoView;
+    
 @end

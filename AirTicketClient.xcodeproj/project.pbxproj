@@ -27,6 +27,7 @@
 		2D3CFACF209D1FD20029CC48 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3CFACE209D1FD20029CC48 /* MapViewController.m */; };
 		2D3CFAD2209D2DCB0029CC48 /* ChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3CFAD1209D2DCB0029CC48 /* ChooseViewController.m */; };
 		2D84D47220946DA400F6943E /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D84D47120946DA400F6943E /* APIManager.m */; };
+		2D9B30E520B9741B00B639E1 /* NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B30E420B9741B00B639E1 /* NotificationCenter.m */; };
 		2DCD70F62094A7A0008F3BFA /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DCD70F52094A7A0008F3BFA /* Ticket.m */; };
 		2DD62D3E20934E9B00E17238 /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD62D3D20934E9B00E17238 /* PlaceViewController.m */; };
 		4947924E208DD78000337523 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4947924D208DD78000337523 /* AppDelegate.m */; };
@@ -76,6 +77,8 @@
 		2D42D754209456570098DF3A /* PlaceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceProtocol.h; sourceTree = "<group>"; };
 		2D84D47020946DA400F6943E /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		2D84D47120946DA400F6943E /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
+		2D9B30E320B9741B00B639E1 /* NotificationCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationCenter.h; sourceTree = "<group>"; };
+		2D9B30E420B9741B00B639E1 /* NotificationCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationCenter.m; sourceTree = "<group>"; };
 		2DCD70F42094A7A0008F3BFA /* Ticket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ticket.h; sourceTree = "<group>"; };
 		2DCD70F52094A7A0008F3BFA /* Ticket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ticket.m; sourceTree = "<group>"; };
 		2DD62D3C20934E9B00E17238 /* PlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
@@ -130,7 +133,7 @@
 			path = ProgressOFDownloadScreenLogic;
 			sourceTree = "<group>";
 		};
-		2D0A75C320B2DAA6008AC5FF /* UsetGreetingLocgic */ = {
+		2D0A75C320B2DAA6008AC5FF /* UsetGreetingLogic */ = {
 			isa = PBXGroup;
 			children = (
 				2D0A75C420B2DAF8008AC5FF /* ContentViewController.h */,
@@ -138,7 +141,7 @@
 				2D0A75CA20B2F9B0008AC5FF /* FirstViewController.h */,
 				2D0A75CB20B2F9B0008AC5FF /* FirstViewController.m */,
 			);
-			path = UsetGreetingLocgic;
+			path = UsetGreetingLogic;
 			sourceTree = "<group>";
 		};
 		2D0D337A20ADEAB800B59CB4 /* CoreData */ = {
@@ -190,6 +193,15 @@
 			path = JsonLocalFile;
 			sourceTree = "<group>";
 		};
+		2D9B30E620B9742100B639E1 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				2D9B30E320B9741B00B639E1 /* NotificationCenter.h */,
+				2D9B30E420B9741B00B639E1 /* NotificationCenter.m */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		2DD62D3B20934E4B00E17238 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,17 +209,21 @@
 				49479250208DD78000337523 /* StartingViewController.m */,
 				2DD62D3C20934E9B00E17238 /* PlaceViewController.h */,
 				2DD62D3D20934E9B00E17238 /* PlaceViewController.m */,
+				2D08660E20AD935B00778B04 /* TabBarController.h */,
+				2D08660D20AD935B00778B04 /* TabBarController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		2DEF699720946CC80016BE45 /* API */ = {
+		2DEF699720946CC80016BE45 /* API+Network */ = {
 			isa = PBXGroup;
 			children = (
 				2D84D47020946DA400F6943E /* APIManager.h */,
 				2D84D47120946DA400F6943E /* APIManager.m */,
+				49479272208DE6C300337523 /* DataManager.h */,
+				49479273208DE6C300337523 /* DataManager.m */,
 			);
-			path = API;
+			path = "API+Network";
 			sourceTree = "<group>";
 		};
 		326629120AC77FBFCA3F1E1F /* Frameworks */ = {
@@ -239,24 +255,21 @@
 		4947924B208DD78000337523 /* AirTicketClient */ = {
 			isa = PBXGroup;
 			children = (
-				2D0A75C320B2DAA6008AC5FF /* UsetGreetingLocgic */,
+				2D9B30E620B9742100B639E1 /* Notification */,
+				2D0A75C320B2DAA6008AC5FF /* UsetGreetingLogic */,
 				2D0A75BF20B2BF41008AC5FF /* ProgressOFDownloadScreenLogic */,
 				2D0D337A20ADEAB800B59CB4 /* CoreData */,
 				2D1BE43F209C87B50038F4D2 /* WorkWithLocationAndMapKit */,
 				2D285E8F2094BC15001CD32F /* TicketLogic */,
-				2DEF699720946CC80016BE45 /* API */,
+				2DEF699720946CC80016BE45 /* API+Network */,
 				2D42D74D209455460098DF3A /* JsonLocalFile */,
 				2DD62D3B20934E4B00E17238 /* Controllers */,
 				49479268208DDC9F00337523 /* Objects */,
 				4947924C208DD78000337523 /* AppDelegate.h */,
 				4947924D208DD78000337523 /* AppDelegate.m */,
-				49479272208DE6C300337523 /* DataManager.h */,
-				49479273208DE6C300337523 /* DataManager.m */,
 				49479257208DD78000337523 /* LaunchScreen.storyboard */,
 				4947925A208DD78000337523 /* Info.plist */,
 				4947925B208DD78000337523 /* main.m */,
-				2D08660E20AD935B00778B04 /* TabBarController.h */,
-				2D08660D20AD935B00778B04 /* TabBarController.m */,
 				2D3CFAD0209D2DCB0029CC48 /* ChooseViewController.h */,
 				2D3CFAD1209D2DCB0029CC48 /* ChooseViewController.m */,
 				2D08661020AD94DA00778B04 /* Assets.xcassets */,
@@ -386,6 +399,7 @@
 				49479274208DE6C300337523 /* DataManager.m in Sources */,
 				2D0D337920ADE9B300B59CB4 /* FavoriteTicket.xcdatamodeld in Sources */,
 				2D285E922094BC44001CD32F /* TicketTableViewCell.m in Sources */,
+				2D9B30E520B9741B00B639E1 /* NotificationCenter.m in Sources */,
 				2D0A75C220B2BF84008AC5FF /* ProgressView.m in Sources */,
 				2D0D339020AEEB2400B59CB4 /* FavoriteTicket+CoreDataProperties.m in Sources */,
 				49479251208DD78000337523 /* StartingViewController.m in Sources */,

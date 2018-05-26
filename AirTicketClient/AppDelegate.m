@@ -12,6 +12,7 @@
 #import "MapViewController.h"
 #import "ChooseViewController.h"
 #import "TabBarController.h"
+#import "NotificationCenter.h"
 @interface AppDelegate ()
 
 @end
@@ -33,6 +34,8 @@
     TabBarController *tabVC = [[TabBarController alloc]init];
     self.window.rootViewController = tabVC;
     [self.window makeKeyAndVisible];
+    
+    [[NotificationCenter sharedInstance] registerService];
     
     return YES;
 }
