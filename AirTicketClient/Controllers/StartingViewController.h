@@ -11,6 +11,7 @@
 #import "PlaceViewController.h"
 #import "APIManager.h"
 #import "TicketTableViewController.h"
+#import "NSString+Localize.h"
 @interface StartingViewController : UIViewController
 
 

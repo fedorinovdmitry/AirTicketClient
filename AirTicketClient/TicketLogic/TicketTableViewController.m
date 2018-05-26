@@ -10,6 +10,7 @@
 #import "TicketTableViewCell.h"
 #import "CoreDataHelper.h"
 #import "NotificationCenter.h"
+#import "NSString+Localize.h"
 #define TicketCellReuseIdentifier @"TicketCellIdentifier"
 
 @interface TicketTableViewController ()
@@ -31,7 +32,7 @@
     if(self){
         isFavorites = YES;
         self.tickets = [NSMutableArray new];
-        self.title = @"Favorites";
+        self.title = @"favorites_tab".localize;
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.tableView registerClass:[TicketTableViewCell class] forCellReuseIdentifier:TicketCellReuseIdentifier];
         [self setupDatePicker];
@@ -44,7 +45,7 @@
     if  ( self ){
         self.tickets = [NSMutableArray new];
         [_tickets addObjectsFromArray:tickets];
-        self.title  =  @"Tickets" ;
+        self.title  =  @"tickets_title".localize ;
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone ;
         [self.tableView registerClass:[TicketTableViewCell  class] forCellReuseIdentifier :TicketCellReuseIdentifier];
         [self setupDatePicker];
@@ -81,7 +82,7 @@
     _textView.textColor = [UIColor colorWithRed:16.0f/255.0f green:75.0f/255.0f blue:201.0f/255.0f alpha:0.5f];
     _textView.font = [UIFont fontWithName:@"SnellRoundhand-Bold" size:20.0];
     
-    _textView.text = @"   you dont'have Favorites Tickets";
+    _textView.text = @"text_fav".localize;
     _textView.alpha = 0;
     [self.view addSubview:_textView];
     
@@ -156,11 +157,11 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Action with ticket" message:@"What to do with the selected ticket?" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"action_tittle_add_ticket".localize message:@"action_question_add_ticket".localize preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *favoriteAction;
     
     if (isFavorites){
-        favoriteAction = [UIAlertAction actionWithTitle:@"Delete from Favorites" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        favoriteAction = [UIAlertAction actionWithTitle:@"remove_from_favorite".localize style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
             Ticket *ticket = [[Ticket alloc]initWithFavorite:[_tickets objectAtIndex:indexPath.row]];
             [[CoreDataHelper sharedinstance] removeFromFavorite:ticket];
             [_tickets removeObjectAtIndex:indexPath.row];
@@ -173,20 +174,20 @@
         }];
     }else{
         if([[CoreDataHelper sharedinstance]isFavorite:[_tickets objectAtIndex:indexPath.row]]){
-            favoriteAction = [UIAlertAction actionWithTitle:@"Delete from Favorites" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            favoriteAction = [UIAlertAction actionWithTitle:@"remove_from_favorite".localize style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
                 [[CoreDataHelper sharedinstance] removeFromFavorite:[_tickets objectAtIndex:indexPath.row]];
             }];
         }else{
-            favoriteAction = [UIAlertAction actionWithTitle:@"Add to Favorites" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            favoriteAction = [UIAlertAction actionWithTitle:@"add_to_favorite".localize style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 [[CoreDataHelper sharedinstance] addToFavorite:[_tickets objectAtIndex:indexPath.row]];
             }];
         }
     }
-    UIAlertAction *notificationAction = [UIAlertAction actionWithTitle:@"Remind" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *notificationAction = [UIAlertAction actionWithTitle:@"remind_me".localize style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
         notificationCell = [tableView cellForRowAtIndexPath:indexPath];
         [_dateTextField becomeFirstResponder];
     }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"close".localize style:UIAlertActionStyleCancel handler:nil];
     [alertController addAction:favoriteAction];
     [alertController addAction:notificationAction];
     [alertController addAction:cancelAction];
@@ -194,7 +195,7 @@
 }
 -(void)doneButtonDidTap:(UIBarButtonItem *)sender{
     if(_datePicker.date &&notificationCell){
-        NSString *message = [NSString stringWithFormat:@"%@ - %@ for %@ rub.", notificationCell.ticket.fromFullName, notificationCell.ticket.toFullName, notificationCell.ticket.price];
+        NSString *message = [NSString stringWithFormat:@"notification_message_from_ticket".localize, notificationCell.ticket.fromFullName, notificationCell.ticket.toFullName, notificationCell.ticket.price];
         NSURL *imageURL;
         if(notificationCell.airlineLogoView.image){
             NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingString:[NSString stringWithFormat:@"/%@.png", notificationCell.ticket.airline]];
@@ -205,10 +206,10 @@
             }
             imageURL = [NSURL fileURLWithPath:path];
         }
-        Notification notification = NotificationMake(@"Remind for ticket", message, _datePicker.date, imageURL);
+        Notification notification = NotificationMake(@"ticket_reminder".localize, message, _datePicker.date, imageURL);
         [[NotificationCenter sharedInstance] sendNotification:notification];
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Sucsess" message:[NSString stringWithFormat:@"We will remind you of the ticket - %@", _datePicker.date] preferredStyle:(UIAlertControllerStyleAlert)];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"success".localize message:[NSString stringWithFormat:@"notification_will_be_sent".localize, _datePicker.date] preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"close".localize style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             [self.view endEditing:YES];
         }];
         [alertController addAction:cancelAction];

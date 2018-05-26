@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  AirTicketClient
+
+  Created by Дмитрий Федоринов on 27.05.2018.
+  Copyright © 2018 Geekbrains. All rights reserved.
+*/
+
+
+"CFBundleDisplayName" = "Поиск Авиабилетов";
+"CFBundleName" = "Поиск Авиабилетов";

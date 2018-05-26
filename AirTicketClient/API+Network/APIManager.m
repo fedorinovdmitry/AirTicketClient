@@ -32,7 +32,7 @@
          [self load :[NSString  stringWithFormat : @"%@%@" , API_URL_CITY_FROM_IP, ipAddress]
      withCompletion :^( id   _Nullable  result){
               NSDictionary  *json = result;
-              NSLog(@"ns log from load %@",json);
+//              NSLog(@"ns log from load %@",json);
               NSString  *iata = [json  valueForKey:   @"iata" ];
               if(iata){
                   City *city = [[DataManager sharedInstance] cityForIATA: iata];
@@ -48,7 +48,7 @@
 -(void)IPAddressWithCompletion:(void  (^)(NSString  *ipAddress))completion{
     [self load :API_URL_IP_ADDRESS  withCompletion :^( id _Nullable result){
          NSDictionary  *json = result;
-         NSLog(@"ns log from IPAddress %@",json);
+//         NSLog(@"ns log from IPAddress %@",json);
          completion([json valueForKey :@"ip"]);
      }];
 }
@@ -70,7 +70,7 @@
 //    NSLog(@"%@", urlString);
     [self load:urlString withCompletion:^(id _Nullable result) {
         NSDictionary *response = result;
-        NSLog(@"результат с билетами %@", result);
+//        NSLog(@"результат с билетами %@", result);
         if (response){
             
             NSDictionary *json = [[response valueForKey: @"data"] valueForKey: request.destionation];  NSMutableArray *array = [NSMutableArray  new ];
@@ -111,7 +111,7 @@ NSString *SearchRequestQuery(SearchRequest  request) {
     }
     isLoading = YES;
     [self load:[NSString stringWithFormat:@"%@%@", API_URL_MAP_PRICE, origin.code] withCompletion:^(id  _Nullable result) {
-        NSLog(@"результат запроса с картами %@", result);
+//        NSLog(@"результат запроса с картами %@", result);
         NSArray *array = result;
         NSMutableArray *prices = [NSMutableArray new];
         if (array){

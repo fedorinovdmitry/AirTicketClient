@@ -7,7 +7,7 @@
 //
 
 #import "PlaceViewController.h"
-
+#import "NSString+Localize.h"
 
 #define ReuseIdentifier @"CellIdentifier"
 
@@ -47,7 +47,7 @@
     
     
     
-    self.title = (_placeType == PlaceTypeDeparture) ? @"From" :@"To";
+    self.title = (_placeType == PlaceTypeDeparture) ? @"main_from".localize : @"main_to".localize;
     
 }
 -(void)configSearchController{
@@ -70,7 +70,7 @@
 }
 
 -(void)configSegmentControl{
-    _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Cities",  @"Airports"]];
+    _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"cities_seg".localize,  @"airpotrs_seg".localize]];
     [_segmentedControl addTarget:self
                           action:@selector(changeSource)
                 forControlEvents:UIControlEventValueChanged];

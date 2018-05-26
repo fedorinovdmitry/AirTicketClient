@@ -30,9 +30,20 @@
                 coordinate =  CLLocationCoordinate2DMake([lat doubleValue], [lon doubleValue]);
             }
         }
+        [self localizeName];
     }
     return  self;
     
+}
+-(void)localizeName{
+    if(!translations) return;
+    NSLocale *locale = [NSLocale currentLocale];
+    NSString *localeid = [locale.localeIdentifier substringToIndex:2];
+    if(localeid){
+        if([translations valueForKey: localeid]){
+            self.name = [translations valueForKey:localeid];
+        }
+    }
 }
 
 @end

@@ -30,7 +30,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.navigationController.navigationBar.prefersLargeTitles = YES;
-    self.title = @"Find";
+    self.title = @"main_title".localize;
 //    [[NSNotificationCenter  defaultCenter] addObserver:self selector:@selector(loadDataComplete) name:kDataManagerLoadDataDidComplete object: nil];
     
     
@@ -74,7 +74,7 @@
 
 -(void)addDepartureButton{
     _departureButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_departureButton setTitle:@"From" forState:UIControlStateNormal];
+    [_departureButton setTitle:@"main_from".localize forState:UIControlStateNormal];
     [_departureButton.titleLabel setFont:BUTTON_FONT_STYLE_SIZE];
     _departureButton.tintColor = [UIColor whiteColor];
     
@@ -86,7 +86,7 @@
 }
 -(void)addArrivalButton{
     _arrivalButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_arrivalButton setTitle:@"To" forState:UIControlStateNormal];
+    [_arrivalButton setTitle:@"main_to".localize forState:UIControlStateNormal];
     _arrivalButton.tintColor = [UIColor whiteColor];
     [_arrivalButton.titleLabel setFont:BUTTON_FONT_STYLE_SIZE];
     _arrivalButton.frame = CGRectMake((_placeContainerView.frame.size.width - (_placeContainerView.frame.size.width - 125.0)) / 2, CGRectGetMaxY(_departureButton.frame) + 40,  _placeContainerView.frame.size.width - 125.0, 60.0);
@@ -98,7 +98,7 @@
 -(void)addSearchButton{
     _searchButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_searchButton.titleLabel setFont:BUTTON_FONT_STYLE_SIZE];
-    [_searchButton setTitle: @"Let's Find" forState: UIControlStateNormal];
+    [_searchButton setTitle: @"main_search".localize forState: UIControlStateNormal];
     _searchButton.tintColor = BACKGROUNDCOLORBUTTON;
     _searchButton.frame = CGRectMake((_placeContainerView.frame.size.width - (_placeContainerView.frame.size.width - 125.0)) / 2 + 20, CGRectGetMaxY(_placeContainerView.frame) + 50, _placeContainerView.frame.size.width - 125.0,  40.0);
     _searchButton.backgroundColor = [UIColor whiteColor];
@@ -110,7 +110,7 @@
 
 }
 - (void)searchButtonDidTap:(UIButton  *)sender {
-    if (![_departureButton.titleLabel.text  isEqual: @"From"] && ![_arrivalButton.titleLabel.text  isEqual: @"To"]){
+    if (![_departureButton.titleLabel.text  isEqual: @"main_from".localize] && ![_arrivalButton.titleLabel.text  isEqual: @"main_to".localize]){
         
         [[ProgressView sharedInstance] show:^{
             [[ APIManager  sharedInstance ]  ticketsWithRequest:   _searchRequest  withCompletion :^( NSArray *tickets) {
@@ -124,15 +124,15 @@
                         TicketTableViewController *ticketsViewController = [[TicketTableViewController alloc]  initWithTickets:tickets];
                         [self.navigationController showViewController:ticketsViewController sender:self];
                     }  else {
-                        UIAlertController *alertController = [UIAlertController  alertControllerWithTitle: @"Sorry!" message : @"We dont have ticket conected with these cities"  preferredStyle:  UIAlertControllerStyleAlert ];
-                        [alertController  addAction :[ UIAlertAction  actionWithTitle : @"Close" style:( UIAlertActionStyleDefault ) handler: nil ]];
+                        UIAlertController *alertController = [UIAlertController  alertControllerWithTitle: @"error".localize message : @"tickets_not_found".localize  preferredStyle:  UIAlertControllerStyleAlert ];
+                        [alertController  addAction :[ UIAlertAction  actionWithTitle : @"close".localize style:( UIAlertActionStyleDefault ) handler: nil ]];
                         [self presentViewController :alertController  animated : YES completion : nil];
                     }
                 }];
             }];
         }];
     }else{
-        UIAlertController *alertController = [UIAlertController  alertControllerWithTitle: @"Sorry!" message : @"You didn't input some city or airport"  preferredStyle:  UIAlertControllerStyleAlert ]; [alertController  addAction :[ UIAlertAction  actionWithTitle : @"Close" style:( UIAlertActionStyleDefault ) handler: nil ]];
+        UIAlertController *alertController = [UIAlertController  alertControllerWithTitle: @"error".localize message : @"not_set_place_arrival_or_departure".localize  preferredStyle:  UIAlertControllerStyleAlert ]; [alertController  addAction :[ UIAlertAction  actionWithTitle : @"close".localize style:( UIAlertActionStyleDefault ) handler: nil ]];
         [self presentViewController :alertController  animated : YES completion : nil];
     }
     
